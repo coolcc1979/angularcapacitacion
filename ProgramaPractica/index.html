@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <!-- Header -->
+    <div class="header row">
+        <div class="col-3">
+            <img class="foto"
+                src="https://th.bing.com/th/id/R.00c1f110930348f0f2daf572a9d9f6b5?rik=H9kJnHncqRolSg&riu=http%3a%2f%2f2.bp.blogspot.com%2f-rdlgq-49Qaw%2fT8xtCNETvVI%2fAAAAAAAAADw%2f6Ya1d8JfpXw%2fs1600%2flogo-sistemas.gif&ehk=MlG6OKP%2bBZG8LipwRiSUTbunMZ77UchATnn84u442Zs%3d&risl=&pid=ImgRaw&r=0" />
+        </div>
+        <div class="col-6 titulo">
+            Sistema de Información
+        </div>
+        <div class="col-3 titulo" id="fecha"></div>
+    </div>
+    <!-- Content -->
+    <div class="content">
+        <div class="field row">
+            <div class="col-3">
+                <label for="nombre" class="form-label">Nombre Creador</label>
+                <input type="text" class="form-control" id="nombre"><br>
+                <button type="button" class="btn btn-primary" onclick="setNombre(creador)">Actualizar</button>
+            </div>
+            <div class="col-3">
+                <label for="edad" class="form-label">Edad</label>
+                <input type="text" class="form-control" id="edad"><br>
+                <button type="button" class="btn btn-primary" onclick="setEdad(creador)">Actualizar</button>
+            </div>
+            <div class="col-3">
+                <label for="residencia" class="form-label">Lugar de Residencia</label>
+                <input type="text" class="form-control" id="residencia"><br>
+                <button type="button" class="btn btn-primary" onclick="setResidencia(creador)">Actualizar</button>
+            </div>
+            <div class="col-3">
+                <label for="estudio" class="form-label">Años de Estudio</label>
+                <input type="text" class="form-control" id="estudio"><br>
+                <button type="button" class="btn btn-primary" onclick="setEstudio(creador)">Actualizar</button>
+            </div>
+        </div>
+    </div>
+    <!-- Result -->
+    <div class="content">
+        <div class="field row">
+            <div class="col-12">
+                <label for="resultado" class="form-label">Resultado</label>
+                <input type="text" class="form-control" id="resultado">
+            </div>
+        </div>
+    </div>
+    <!-- Datos -->
+    <div class="content">
+        <table class="table table-info table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre Creador</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Lugar de Residencia</th>
+                    <th scope="col">Años de Estudio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row" id="tnombre"></th>
+                    <th id="tedad"></th>
+                    <th id="tresidencia"></th>
+                    <th id="testudio"></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>
