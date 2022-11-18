@@ -1,0 +1,28 @@
+.info-personal {
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
+.panel-info {
+  background-color: #fff;
+  margin-top: 20px;
+  width: 40%;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 5px 10px #888888;
+}
+
+.input-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-info button {
+  height: 45px;
+  top: 7px;
+  position: relative;
+}
+.mb-3 {
+  width: 80%;
+}

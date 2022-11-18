@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #70ebff;
+}
+
+body:hover {
+  background: linear-gradient(to right, #edbf65, #0ee9ef);
+}

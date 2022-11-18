@@ -1,0 +1,80 @@
+<div class="container info-personal">
+  <h3>Información Personal:</h3>
+  <hr />
+
+  <form>
+    <div class="row">
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="input-info">
+          <div class="mb-3">
+            <label for="creadorInput" class="form-label">Creador:</label>
+            <input type="text" class="form-control" id="creadorInput" />
+          </div>
+          <button
+            class="btn btn-primary"
+            type="button"
+            onclick="limpiarNombre()"
+          >
+            Limpiar
+          </button>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="input-info">
+          <div class="mb-3">
+            <label for="residenciaInput" class="form-label"
+              >Lugar de residencia:</label
+            >
+            <input type="text" class="form-control" id="residenciaInput" />
+          </div>
+          <button
+            class="btn btn-primary"
+            type="button"
+            onclick="limpiarResidencia()"
+          >
+            Limpiar
+          </button>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="input-info">
+          <div class="mb-3">
+            <label for="edadInput" class="form-label">Edad:</label>
+            <input type="text" class="form-control" id="edadInput" />
+          </div>
+          <button class="btn btn-primary" type="button" onclick="limpiarEdad()">
+            Limpiar
+          </button>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="input-info">
+          <div class="mb-3">
+            <label for="aniosInput" class="form-label"
+              >Años estudiando programacion</label
+            >
+            <input type="text" class="form-control" id="aniosInput" />
+          </div>
+          <button
+            class="btn btn-primary"
+            type="button"
+            onclick="limpiarProgramando()"
+          >
+            Limpiar
+          </button>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-warning" onclick="verDatos()">
+      Enviar Datos
+    </button>
+  </form>
+
+  <div class="panel-info">
+    <p>Creador: <strong id="creadorLabel"></strong></p>
+    <p>Edad: <strong id="edadLabel"></strong></p>
+    <p>Residencia: <strong id="residenciaLabel"></strong></p>
+    <p>Años programando: <strong id="aniosLabel"></strong></p>
+    <p>Fecha: <strong id="fechaLabel"></strong></p>
+  </div>
+</div>
