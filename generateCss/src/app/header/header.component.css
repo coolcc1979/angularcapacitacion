@@ -1,0 +1,138 @@
+.objeto {
+  align-items: center;
+}
+.fondo{
+    width: 100%;
+    background-color: red;
+}
+.centrado {
+  text-align: center;
+  vertical-align: middle;
+}
+.img {
+  text-align: center;
+  vertical-align: middle;
+  background: #000000; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #0f9b0f,
+    #000000
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0f9b0f,
+    #000000
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.titulo {
+  text-align: center;
+  vertical-align: middle;
+  background: #636363; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #a2ab58,
+    #636363
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #a2ab58,
+    #636363
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.fig1 {
+  padding-top: 1em;
+  margin-top: 2em;
+  width: 250px;
+  height: 200px;
+  background: #7f7fd5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #91eae4,
+    #86a8e7,
+    #7f7fd5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #91eae4,
+    #86a8e7,
+    #7f7fd5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  position: absolute;
+  left: 50px;
+  text-align: center;
+  align-items: center;
+}
+.fig2 {
+  padding-top: 1em;
+  margin-top: 2em;
+  width: 250px;
+  height: 200px;
+  background: #7f7fd5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #91eae4,
+    #86a8e7,
+    #7f7fd5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #91eae4,
+    #86a8e7,
+    #7f7fd5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  position: absolute;
+  left: 350px;
+  text-align: center;
+  align-items: center;
+}
+.fig3 {
+  padding-top: 1em;
+  margin-top: 2em;
+  width: 250px;
+  height: 200px;
+  background: #7f7fd5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #91eae4,
+    #86a8e7,
+    #7f7fd5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #91eae4,
+    #86a8e7,
+    #7f7fd5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  position: absolute;
+  left: 650px;
+  text-align: center;
+  align-items: center;
+}
+.fig4 {
+  padding-top: 1em;
+  margin-top: 2em;
+  width: 250px;
+  height: 200px;
+  background: #7f7fd5; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #91eae4,
+    #86a8e7,
+    #7f7fd5
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #91eae4,
+    #86a8e7,
+    #7f7fd5
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  position: absolute;
+  left: 950px;
+  text-align: center;
+  align-items: center;
+}
+
