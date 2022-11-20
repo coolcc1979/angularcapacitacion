@@ -1,0 +1,16 @@
+.card{
+    margin-top: 100px;
+   padding: 10px;
+    height: 148px;
+    width: 140px;
+    background-color: royalblue;
+    color:aliceblue;
+    padding: 67px;
+    margin-left: 45px;
+}
+.flex{
+    display: flex;
+    margin-left:78px;
+    padding: 100px;
+
+}

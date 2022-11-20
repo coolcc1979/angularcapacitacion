@@ -1,0 +1,21 @@
+.nav{
+width: 100%;
+background-color: aquamarine;
+height:85px ;
+}
+nav .brand img{
+    height: 30px;
+}
+.nav .nav-link{
+margin-left: 50px;
+}
+.nav .nav-link a{
+    padding-left: 50px;
+    text-decoration: none;
+    color:black
+}
+.nav .nav-link a:hover{
+    padding-left: 50px;
+    text-decoration: none;
+    color:brown
+}
