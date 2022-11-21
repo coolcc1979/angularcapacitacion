@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-logico',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogicoComponent implements OnInit {
 
+  nombreCreador: string = "Jonathan Vargas";
+  ciudad: string = "Quito";
+  fecha: Date = new Date();
+  edad: string = "26";
+  comentario: string = "";
+
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
+
+  
 
 }
