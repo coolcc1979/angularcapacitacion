@@ -1,13 +1,7 @@
 <header>
     <div class="menu">
-        <img src="https://res.cloudinary.com/teepublic/image/private/s--qjn5BLoD--/t_Resized%20Artwork/c_fit,g_north_west,h_954,w_954/co_262c3a,e_outline:48/co_262c3a,e_outline:inner_fill:48/co_ffffff,e_outline:48/co_ffffff,e_outline:inner_fill:48/co_bbbbbb,e_outline:3:1000/c_mpad,g_center,h_1260,w_1260/b_rgb:eeeeee/c_limit,f_auto,h_630,q_90,w_630/v1460265817/production/designs/473686_1.jpg"
-            alt="">
+        <img class ="logo" [src]="imageUrl" alt="">
         <nav>
-            <ul>
-                <li><a href="#">
-                        <h1>Hola Gibrán</h1>
-                    </a></li>
-            </ul>
 
             <ul>
                 <li><a href="#">
@@ -33,45 +27,54 @@
 
     <div class="card">
         <div class="contenido-card">
-            <h3>Nombre del Creador</h3>
-            <p>Gibrán Guzmán</p>
-            <input type="text" id="name" name="name" required minlength="10" maxlength="20" size="13"><br><br>
-            <button>Editar</button>
+            <h3>Creador</h3>
+            <p>{{creador}}</p>
+            <input type="text" id="name" name="name" required minlength="10" maxlength="20" size="9"><br><br>
+            
         </div>
     </div>
 
     <div class="card">
         <div class="contenido-card">
-            <h3>Edad del Creador</h3>
-            <p>22 años</p>
-            <input type="text" id="name" name="name" required minlength="10" maxlength="20" size="13"><br><br>
-            <button>Editar</button>
+            <h3>Edad</h3>
+            <p>{{edad}}</p>
+            <input type="text" id="name" name="name" required minlength="10" maxlength="20" size="9"><br><br>
+            
         </div>
     </div>
 
     <div class="card">
         <div class="contenido-card">
-            <h3>Ubicación del Creador</h3>
-            <p>El Recreo</p>
-            <input type="text" id="name" name="name" required minlength="10" maxlength="20" size="13"><br><br>
-            <button>Editar</button>
+            <h3>Ubicación</h3>
+            <p>{{ubicacion}}</p>
+            <input type="text" id="name" name="name" required minlength="10" maxlength="20" size="9"><br><br>
+            
         </div>
     </div>
 
     <div class="card">
         <div class="contenido-card">
             <h3>Fecha Actual</h3>
-            <p>Viernes 18/11/2022</p>
-            <input type="text" id="name" name="name" required minlength="10" maxlength="20" size="13"><br><br>
-            <button>Editar</button>
+            <p>{{fecha}}</p>
+            <input type="text" id="name" name="name" required minlength="10" maxlength="20" size="9"><br><br>
+            
         </div>
     </div>
 
     <div class="card">
         <div class="contenido-card">
-            <h3>Años estudiando Programación</h3>
-            <p>3 años</p>
-            <input type="text" id="name" name="name" required minlength="10" maxlength="20" size="13"><br><br>
+            <h3>Años Estudiando</h3>
+            <p>{{aniosEstudiando}}</p>
+            <input type="text" id="name" name="name" required minlength="10" maxlength="20" size="9"><br><br>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="contenido-card">
+            <h3>Comentarios</h3>
+            <div></div>
+            <label><input [(ngModel)]="comentarios" required minlength="10" maxlength="20" size="9"></label>
+            <p>{{comentarios}}</p>
             <button>Editar</button>
         </div>
     </div>
