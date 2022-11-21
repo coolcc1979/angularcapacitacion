@@ -1,0 +1,50 @@
+<div class="contain">
+    <div class="component-body">
+        <div class="card">
+            <h4>Nombre</h4>
+            <h3>{{nombreCreador}}</h3>
+            <div class=" contenedor-editar d-flex">
+                <input type="text" name="" id="">
+                <button class="btn btn-editar">
+                    Editar
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <h4>Edad:</h4>
+            <h3>{{anios}}</h3>
+            <div class=" contenedor-editar d-flex">
+                <input type="text" name="" id="">
+                <button class="btn btn-editar">
+                    Editar
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <h4>Expeciencia:</h4>
+            <h3>{{experiencia}}</h3>
+            <div class=" contenedor-editar d-flex">
+                <input type="text" name="" id="">
+                <button class="btn btn-editar">
+                    Editar
+                </button>
+            </div>
+        </div>
+        <div class="card">
+            <h4>Residencia</h4>
+            <h3>{{residencia}}</h3>
+            <div class=" contenedor-editar d-flex">
+                <input type="text" name="" id="">
+                <button class="btn btn-editar">
+                    Editar
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="comentario mb-3 col-6">
+        <h3 class="form-label">Comentario </h3>
+        <input type="text" class="form-control"  [(ngModel)]="comentario">
+        <h3>Comentario en pantalla </h3>
+        <p>{{comentario}}</p>
+    </div>
+</div>
