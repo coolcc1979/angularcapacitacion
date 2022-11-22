@@ -8,6 +8,7 @@
 
 # Node
 /componentes/node_modules
+/tienda-online/node_modules
 npm-debug.log
 yarn-error.log
 
