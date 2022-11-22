@@ -1,0 +1,70 @@
+<form
+  (ngSubmit)="sendData()"
+  style="margin-top: 40px !important; margin: auto; width: 50%"
+>
+  <div class="row">
+    <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="form-floating">
+        <select
+          class="form-select"
+          id="floatingSelect"
+          (change)="selectClient($event)"
+          aria-label="Floating label select example"
+        >
+          <option selected>Seleccione:</option>
+          <option [value]="i + 1" *ngFor="let item of clientes; index as i">
+            {{ item }}
+          </option>
+        </select>
+        <label for="floatingSelect">Clientes</label>
+      </div>
+    </div>
+    <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="mb-3">
+        <label for="productoInput" class="form-label">Producto:</label>
+        <input
+          readonly
+          type="text"
+          class="form-control"
+          id="productoInput"
+          [value]="cliente.producto"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="mb-3">
+        <label for="precioInput" class="form-label">Precio: </label>
+        <input
+          readonly
+          type="text"
+          class="form-control"
+          id="precioInput"
+          [value]="cliente.precio"
+          required
+        />
+      </div>
+    </div>
+    <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <div class="mb-3">
+        <label for="comentarioInput" class="form-label"> Comentarios: </label>
+        <textarea
+          class="form-control"
+          id="comentarioInput"
+          rows="3"
+          [disabled]="deshabilitado"
+          [(ngModel)]="cliente.comentarios"
+          name="comentarios"
+          required
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+      <p>Comentarios: {{cliente.comentarios }} </p>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" (click)="(sendData)">Guardar</button>
+</form>
