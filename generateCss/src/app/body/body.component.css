@@ -1,0 +1,13 @@
+.fig1 {
+    padding-top: 1em;
+    margin-top: 2em;
+    width: 1000px;
+    height: 50px;
+    position: relative;
+  left: 150px;
+  top: 300px;
+  text-align: center;
+  vertical-align: middle;
+  align-items: center;
+  background-color: rgb(0, 255, 76);
+}  
