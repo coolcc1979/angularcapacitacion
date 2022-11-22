@@ -1,0 +1,40 @@
+<div class="container">
+  <input
+    type="text"
+    ng
+    class="form-control"
+    [placeholder]="textplaceholder"
+    [disabled]="deshabilitado"
+    [(ngModel)]="comentario"
+  />
+  <button class="btn btn-dark"  (click)="agregarComentario($event)">
+    Agregar comentario
+  </button>
+</div>
+<div class="p-5" *ngFor="let comentario of comentarios">
+  <div class="row">
+    <div class="col-2">
+      <img [src]="imagenAvatar"  class="avatar" src="" alt="" />
+    </div>
+    <div class="col">
+      <p>
+        {{ comentario }}
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container">
+    <h1>Contactos</h1>
+    <div class="">
+     <p>Nombre:Christian Andrango</p>
+    </div>
+    <div class="">
+        <p>Telefono:1783321</p>
+    </div>
+    <div class="">
+        <p>Correo:
+            <a href="mailto:cdandrango@gmail.com">
+                cdandrango@gmail.com
+            </a>
+</div>
+
