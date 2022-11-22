@@ -1,0 +1,37 @@
+<div class="contain">
+    <div class="container-contenido">
+       <div class="card col-6">
+            <div class="mb-3 px-5">
+                <label for="exampleInputEmail1" class="form-label">Nombre</label>   
+                  <div class="">
+                    <button class="form-label" type="button" class="btn  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{nombre}}
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li><a   (click)="user()"class="dropdown-item" href="#">{{nombres[0]}} </a></li>
+                      <li><a   (click)="user1()"class="dropdown-item" href="#">{{nombres[1]}}</a></li>
+                      <li><a   (click)="user2()" class="dropdown-item" href="#">{{nombres[2]}}</a></li>
+                    </ul>
+                  </div>
+
+            </div>
+        
+            <div class="mb-3 px-5">
+                <label for="exampleInputEmail1" class="form-label">Producto</label>
+                    <input type="text" class="form-control" [value]="producto">
+            </div>
+            <div class="mb-3 px-5">
+                <label for="exampleInputEmail1" class="form-label">Precio</label>
+                <input type="text" class="form-control" [value]="precio">
+              </div>
+            <div class="mb-3 px-5">
+                <label  class="form-label">Comentario</label>
+                <textarea type="text" class="form-control"[placeholder]="textplaceholder" rows="3" [disabled]="deshabilitado"
+                [(ngModel)]="comentario"></textarea>
+                <label for="">{{comentario}}</label>
+            </div>
+            <button type="submit" class="btn btn-dark">Agregar</button>
+       </div>
+    </div>
+
+</div>
