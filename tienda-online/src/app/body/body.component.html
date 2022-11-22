@@ -1,0 +1,75 @@
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Nombre del Cliente:</h4>
+        <select class="form-control">
+            <option>{{nombre}}</option>
+            <option>Romario Ibarra</option>
+            <option>Klever Chala</option>
+            <option>Antonio Valencia</option>
+        </select>
+
+        <h5 class="card-title">Producto:</h5>
+        <select class="form-control">
+            <option>{{producto}}</option>
+            <option>Chocolates</option>
+            <option>Chicles</option>
+            <option>Caramelos</option>
+        </select>
+
+
+        <h5 class="card-title">Precio:</h5>
+        <select class="form-control">
+            <option>{{precio}}</option>
+            <option>10.50</option>
+            <option>3.00</option>
+            <option>1.00</option>
+        </select>
+
+        <h5 class="card-title">Comentarios:</h5>
+        <input type="text" class="form-control" [placeholder]="textplaceholder" [disabled]="deshabilitado">
+    </div>
+
+</div>
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre del Cliente</th>
+            <th scope="col">Productos</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Comentarios</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>{{nombre}}</td>
+            <td>{{producto}}</td>
+            <td>{{precio}}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Romario Ibarra</td>
+            <td>Chocolates</td>
+            <td>10.50</td>
+            <td></td>
+        </tr>
+        <tr>
+            <th scope="row">3</th>
+            <td>Klever Chala</td>
+            <td>Chicles</td>
+            <td>3.00</td>
+            <td></td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td>Antonio Valencia</td>
+            <td>Caramelos</td>
+            <td>1.00</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
