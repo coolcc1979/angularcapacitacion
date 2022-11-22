@@ -1,0 +1,10 @@
+<section>
+    <nav class="nav">   
+        <div class="brand">
+         <img [src]="datas.image" alt="">
+        </div>
+        <div *ngFor="let data of datas.link" class="nav-link">
+            <a href="">{{data}}</a>
+        </div>
+    </nav>
+</section>
