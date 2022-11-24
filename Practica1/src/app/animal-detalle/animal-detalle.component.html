@@ -1,0 +1,35 @@
+<div class="titulo">
+    <h1>Listado de Animales</h1>
+</div>
+<br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Especie</th>
+            <th scope="col">Raza</th>
+            <th scope="col">Color</th>
+            <th scope="col">Comentarios</th>
+        </tr>
+    </thead>
+    <h5 *ngIf="arr2.length == 0">No hay animales existentes</h5>
+    <tbody class="table-group-divider">
+        <tr class="centrado" *ngFor="let item of arr2  ; let i = index">
+            <th scope="row">{{item.id}}</th>
+            <td>{{item.especie | uppercase}}</td>
+            <td [ngStyle]="{'color': 'red'}">{{item.raza |uppercase}}</td>
+            <td class="color"><strong>{{item.color | uppercase}}</strong></td>
+            <td>
+                <ul class="mt-2">
+                    <ul *ngIf="this.arr2[i].caracteristicas.length === 0" >No hay comentarios existentes</ul>
+                    <ul *ngFor="let item2 of arr2[i].caracteristicas"  class="">{{item2}}</ul>
+                </ul>
+                  <input type="text" class="form-control" [(ngModel)]="comentarios" placeholder="Ingrese un comentario" >
+                <div class="text-center">
+                    <br>
+                    <button (click)="agregar(i)" class="btn btn-dark">+ Agregar</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

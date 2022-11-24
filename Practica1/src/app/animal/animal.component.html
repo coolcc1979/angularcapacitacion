@@ -1,0 +1,39 @@
+<div class="titulo">
+    <h1>Agregar Animales</h1>
+</div>
+<br>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Especie</th>
+            <th scope="col">Raza</th>
+            <th scope="col">Color</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        <tr>
+            <th>
+                <input type="number" class="form-control" required id="id" 
+                placeholder="Ingrese un número" [(ngModel)]="animal.id" >
+            </th>
+            <th>
+                <input type="text" class="form-control" required especie="especie" 
+                placeholder="Ingrese una especie" [(ngModel)]="animal.especie" >
+            </th>
+            <th>
+                <input type="text" class="form-control" required raza="raza" 
+                placeholder="Ingrese una raza" [(ngModel)]="animal.raza" >
+            </th>
+            <th>
+                <input type="text" class="form-control" required color="color" 
+                placeholder="Ingrese un color" [(ngModel)]="animal.color" >
+            </th>
+        </tr>
+    </tbody>
+    <div class="boton">
+        <button (click)="agregar()" class="btn btn-dark">+ Agregar</button>
+    </div>
+</table>
+<br>
+<app-animal-detalle [arr2]="arr"></app-animal-detalle>
