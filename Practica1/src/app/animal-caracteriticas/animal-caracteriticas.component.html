@@ -1,0 +1,4 @@
+<p *ngIf="caracteristicas.length == 0">No existen caracteristicas por Mostrar</p>
+<p *ngFor="let c of caracteristicas; let i = index">{{i}}. {{ c | mayusculas }}</p>
+<input type="text" class="form-control"  [(ngModel)]="caracteristica" (keydown.enter)="guardarCaracteristica()"><br>
+<button class="btn btn-secondary" (click)="guardarCaracteristica()"> + Agregar Caracteristica</button>

@@ -1,0 +1,23 @@
+<br><hr>
+<h1>Lista de Animales</h1>
+<h3 *ngIf="animales.length == 0">No existen animales aun.</h3>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Especie</th>
+            <th scope="col">Raza</th>
+            <th scope="col">Color</th>
+            <th scope="col">Caracteristicas</th>
+        </tr>
+    </thead>
+    <tbody >
+        <tr *ngFor="let animal of animales" class="wobold">
+            <th>{{animal.id}}</th>
+            <th [ngClass]="{'peque':animales.length%2==0,'grande':animales.length%2!=0}">{{animal.especie | uppercase }}</th>
+            <th [ngStyle]="{'color':animal.raza === 'Chihuahua' ? 'blue' : 'green' }">{{animal.raza}}</th>
+            <th>{{animal.color}}</th>
+            <th><app-animal-caracteriticas></app-animal-caracteriticas></th>
+        </tr>
+    </tbody>
+</table>

@@ -7,9 +7,7 @@
 /bazel-out
 
 # Node
-/componentes/node_modules
-/tienda-online/node_modules
-/Practica1/node_modules
+/node_modules
 npm-debug.log
 yarn-error.log
 
