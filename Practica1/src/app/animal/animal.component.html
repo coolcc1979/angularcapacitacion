@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="col-6">
+        <h2>Agregar Animal </h2>
+            <div class="mb-3">
+                <label class="form-label">Id</label>
+                <input type="text" class="form-control" required id="id" [(ngModel)]="anim.id" >
+                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Especie</label>
+                <input type="text" class="form-control" required id="especie" [(ngModel)]="anim.especie">
+                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Raza</label>
+                <input type="text" class="form-control" required id="raza" [(ngModel)]="anim.raza">
+                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Color</label>
+                <input type="text" class="form-control" required id="color" [(ngModel)]="anim.color">
+                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            </div>
+            <button (click)="agregar()" class="btn btn-warning">Agregar</button>
+    </div>    
+</div>
+<app-animal-detalle [arr2]="arr"></app-animal-detalle>
