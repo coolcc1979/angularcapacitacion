@@ -1,0 +1,76 @@
+<div class="container mt-4 bg-animal">
+  <form novalidate (ngSubmit)="createAnimal(formAnimal)" #formAnimal="ngForm">
+    <div class="row">
+      <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="mb-3">
+          <label for="idInput" class="form-label">
+            Identificador
+          </label>
+          <input
+            type="text"
+            class="form-control"
+            id="idInput"
+            [(ngModel)]="animal.id"
+            name="id"
+            #idAnimal="ngModel"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="mb-3">
+          <label for="especieInputId" class="form-label"> Especie </label>
+          <input
+            type="text"
+            class="form-control"
+            id="especieInputId"
+            [(ngModel)]="animal.especie"
+            name="especie"
+            #especieAnimal="ngModel"
+            minlength="3"
+            required
+          />
+        </div>
+      </div>
+      <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="mb-3">
+          <label for="razaInputId" class="form-label"> Raza </label>
+          <input
+            type="text"
+            class="form-control"
+            id="razaInputId"
+            [(ngModel)]="animal.raza"
+            name="raza"
+            #razaAnimal="ngModel"
+            minlength="3"
+            required
+          />
+        </div>
+      </div>
+      <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <div class="mb-3">
+          <label for="colorInputId" class="form-label"> Color </label>
+          <input
+            type="text"
+            class="form-control"
+            id="colorInputId"
+            [(ngModel)]="animal.color"
+            name="color"
+            #colorAnimal="ngModel"
+            minlength="3"
+            required
+          />
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="formAnimal.invalid">Agregar</button>
+  </form>
+
+  <div>
+    <app-animal-detalle [animales]="animales"></app-animal-detalle>
+
+  </div>
+
+</div>

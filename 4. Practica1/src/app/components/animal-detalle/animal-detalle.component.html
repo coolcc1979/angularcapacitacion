@@ -1,0 +1,42 @@
+<!-- <ng-container *ngIf="animales.length > 0; else noAnimales"> -->
+
+<div class="data-animal">
+  <h3>Lista de Animales</h3>
+
+  <ng-container *ngIf="animales.length > 0; else noAnimales">
+    <table class="table">
+      <thead class="table-success">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Especie</th>
+          <th scope="col">Raza</th>
+          <th scope="col">Color</th>
+          <th scope="col">Caracteristicas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let animal of animales; index as i">
+          <th scope="row">{{ animal.id }}</th>
+          <td>{{ animal.especie | uppercase }}</td>
+          <td [ngStyle]="{'color':'rgb(251, 84, 43)'}">{{ animal.raza }}</td>
+          <td class="color-animal">{{ animal.color }}</td>
+          <td>
+            <app-animal-caractetistica
+              (listaEmit)="addCaracteristicas($event, i)"
+            ></app-animal-caractetistica>
+
+            <ol>
+              <li *ngFor="let item of animal.caracteristicas">{{ item }}</li>
+            </ol>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+</div>
+
+<ng-template #noAnimales>
+  <div class="alert alert-danger mt-4" role="alert">
+    No hay animales, agregue...
+  </div>
+</ng-template>

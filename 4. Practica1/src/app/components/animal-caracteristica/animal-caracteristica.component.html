@@ -1,0 +1,20 @@
+<form novalidate (ngSubmit)="addCaracteristica(formCaracteristica)" #formCaracteristica="ngForm">
+  <div class="row">
+    <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 d-flex align-items-center">
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="caracteristica"
+          name="caracteristicaAnimal"
+          required
+          minlength="3"
+        />
+      </div>
+
+      <button class="btn  btn-add" [disabled]="formCaracteristica.invalid">
+        <i class="bi bi-plus-circle-fill"></i>
+      </button>
+    </div>
+  </div>
+</form>
