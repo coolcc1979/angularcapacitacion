@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit} from '@angular/core';
+import { FormGroup, FormControl ,Validators} from '@angular/forms';
 @Component({
   selector: 'app-body',
   templateUrl: './body.component.html',
   styleUrls: ['./body.component.scss']
 })
 export class BodyComponent implements OnInit {
+  form!: FormGroup;
   nombre: String;
   producto: String;
   precio: String;
@@ -14,6 +15,8 @@ export class BodyComponent implements OnInit {
   comentario: String;
   nombres: String[];
   constructor() { 
+    // construir el formulario 
+    this.buildForm();
     this.nombre = "";
     this.producto = "";
     this.precio = "";
@@ -25,6 +28,7 @@ export class BodyComponent implements OnInit {
   ngOnInit(): void {
     
   }
+  
 
   public user(){
     this.deshabilitado =true;
@@ -47,4 +51,32 @@ export class BodyComponent implements OnInit {
     setInterval(()=>this.deshabilitado = false, 5000);
     this.nombre = this.nombres[2];
   }
+
+
+  save(event: Event) {
+    event.preventDefault();
+    const value = this.form.value;
+    console.log(value);
+  }
+  
+  private buildForm() {
+    this.form = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      date: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.email]),
+      text: new FormControl('', [Validators.maxLength(200)]),
+      category: new FormControl('', [Validators.required]),
+      gender: new FormControl('', [Validators.required]),
+    });
+
+  this.form.valueChanges
+  .subscribe(value => {
+    console.log(value);
+  });
+
+  
+  
+  }
+  
+
 }

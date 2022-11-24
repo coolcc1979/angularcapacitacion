@@ -8,6 +8,8 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormularioReactivoComponent } from './formulario-reactivo/formulario-reactivo.component';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeaderComponent,
     BodyComponent,
     ContactoComponent,
+    FormularioReactivoComponent,
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

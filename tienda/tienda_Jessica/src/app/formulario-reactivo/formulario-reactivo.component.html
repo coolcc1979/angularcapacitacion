@@ -1,0 +1,131 @@
+<h4>Formularios <small>Reactive</small></h4>
+<hr>
+<form autocomplete="off" [formGroup]="formReactive" (ngSubmit)="save()">
+
+    <div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label" [class.text-danger]="nombreNoValido">Nombre</label>
+            <div class="col-8">
+
+                <input class="form-control" type="text" placeholder="Nombre" formControlName="nombre" [class.is-invalid]="nombreNoValido">
+                <small *ngIf="nombreNoValido" class="invalid-feedback">Ingrese mínimo 5 letras</small>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-2 col-form-label" [class.text-danger]="apellidoNoValido">Apellido</label>
+            <div class="col-8">
+
+                <input class="form-control" type="text" placeholder="Apellido" formControlName="apellido" [class.is-invalid]="apellidoNoValido">
+                <small *ngIf="apellidoNoValido" class="invalid-feedback">Ingrese mínimo 5 letras</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label" [class.text-danger]="correoNoValido">Correo</label>
+        <div class="col-md-8">
+
+            <input class="form-control" type="email" placeholder="Correo electrónico" formControlName="correo" [class.is-invalid]="correoNoValido">
+            <small *ngIf="correoNoValido" class="invalid-feedback">Ingrese un correo válido</small>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label" [class.text-danger]="usuarioNoValido">Usuario</label>
+        <div class="col">
+
+            <input class="form-control" type="text" placeholder="Usuario" formControlName="usuario" [class.is-invalid]="usuarioNoValido">
+            <small *ngIf="usuarioNoValido" class="invalid-feedback">Ingrese un usuario valido</small>
+        </div>
+    </div>
+
+    <div>
+        <div class="form-group row">
+            <label class="col-2 col-form-label" [class.text-danger]="password1NoValido">Password</label>
+            <div class="col">
+
+                <input class="form-control" type="password" placeholder="Password" formControlName="password1" [class.is-invalid]="password1NoValido">
+                <small *ngIf="password1NoValido" class="invalid-feedback">Contraseña no valida</small>
+            </div>
+        </div>
+
+        <div class="form-group row" [class.text-danger]="password2NoValido">
+            <label class="col-2 col-form-label">Re-Password</label>
+            <div class="col">
+
+                <input class="form-control" type="password" placeholder="Re-Password" formControlName="password2" [class.is-invalid]="password2NoValido">
+                <small *ngIf="password2NoValido" class="invalid-feedback">No coincide el password</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row" formGroupName="direccion">
+        <label class="col-2 col-form-label">Dirección</label>
+
+        <div class="col">
+            <input class="form-control" type="text" placeholder="Provincia" formControlName="provincia" [class.is-invalid]="provinciaNoValida">
+            <small *ngIf="provinciaNoValida" class="invalid-feedback">Ingrese una provincia válida</small>
+        </div>
+
+        <div class="col">
+            <input class="form-control" type="text" placeholder="Ciudad" formControlName="ciudad" [class.is-invalid]="ciudadNoValida">
+            <small *ngIf="ciudadNoValida" class="invalid-feedback">Ingrese una ciudad válida</small>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <table class="table table-dark">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Pasatiempo</th>
+                        <th>Borrar</th>
+                    </tr>
+                </thead>
+                <tbody formArrayName="pasatiempos">
+                    <tr *ngFor="let pasatiempo of pasatiempos.controls; let i = index">
+                        <td>{{i + 1}}</td>
+                        <td>
+                            <input type="text" class="form-control" [formControlName]="i">
+                        </td>
+                        <td>
+                            <div class="d-grid gap-2">
+                                <button type="button" value="Borrar" class="btn btn-danger" (click)="removePasatiempo(i)">Borrar</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="d-grid gap-2">
+                <button type="button" class="btn btn-primary mt-1 mb-1" (click)="addPasatiempo()">+ Agregar</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">&nbsp;</label>
+        <div class="input-group col-md-8">
+            <button type="submit" class="btn btn-outline-primary">
+        Guardar
+      </button>
+        </div>
+    </div>
+
+</form>
+
+
+<hr>
+
+<pre>
+    Estado del formulario: {{formReactive.valid}}
+    <br>
+    Estatus: {{formReactive.status}}
+</pre>
+<pre>
+    {{formReactive.value | json}}
+</pre>
