@@ -7,9 +7,9 @@ import { Animal } from '../../app/animal'
 })
 export class AnimalDetalleComponent implements OnInit {
   comentario: string;
-  @Input()  arr2: Animal[];
+  @Input()  arrAnimales: Animal[];
   constructor() { 
-    this.arr2= [
+    this.arrAnimales= [
     ];
     this.comentario ="";
   }
@@ -21,7 +21,7 @@ export class AnimalDetalleComponent implements OnInit {
 
     let comentario = this.comentario;
     console.log(comentario);
-    this.arr2[id].caracteristicas.push(comentario);
+    this.arrAnimales[id].caracteristicas.push(comentario);
   }
 
 }

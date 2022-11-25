@@ -11,15 +11,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of arr2  ; let i = index"> 
+      <tr *ngFor="let item of arrAnimales  ; let i = index"> 
         <th scope="row">{{item.id}}</th>
         <td>{{item.especie | uppercase}}</td>
         <td  [ngStyle]="{'color': 'yellow'}">{{item.raza}}</td>
         <td [ngStyle]="{'font-size':'30px'}">{{item.color}}</td>
         <td>
             <ul class="mt-2">
-                <li *ngIf="this.arr2[i].caracteristicas.length === 0"  class="">No hay comentarios disponibles</li>
-                <li *ngFor="let item2 of arr2[i].caracteristicas"  class="">{{item2}}</li>
+                <li *ngIf="item.caracteristicas.length === 0"  class="">No hay comentarios disponibles</li>
+                <li *ngFor="let item2 of item.caracteristicas"  class="">{{item2}}</li>
             </ul>
             <textarea class="mt-2 mb-2 form-control" [(ngModel)]="comentario" name="" id="" cols="30" rows="3">
             </textarea>

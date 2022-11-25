@@ -27,8 +27,11 @@ export class AnimalComponent implements OnInit {
   agregar(){
     let anim2: Animal;
     anim2 ={
+
       id: this.anim.id, especie:this.anim.especie, raza:this.anim.raza, color:this.anim.color, caracteristicas:[]
+      
     }
+    
 
     this.arr.push(anim2);
   }
