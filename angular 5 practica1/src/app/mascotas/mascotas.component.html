@@ -1,0 +1,37 @@
+<h1>
+    Lista de animales
+</h1>
+<table class="table">
+    <thead>
+        <tr>
+        <td>Id</td>
+        <td>Especie</td>
+        <td>Raza</td>
+        <td>Color</td>
+        <td>Caracteristicas</td>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let animal of animales index as indexOfelement" >
+            <td>{{animal.id}}</td>
+            <td [ngStyle]="{'color': 'red'}" >{{animal.especie}}</td>
+            <td>{{animal.raza}}</td>
+            <td>{{animal.color}}</td>
+            <td>
+                <ol>
+                <ng-container *ngFor="let caracteristica of animales[indexOfelement].caracteristicas">
+                        
+                            <li>
+                                {{caracteristica | caracteristicas}}
+                            </li>
+                        
+                </ng-container>
+            </ol>
+                <input [(ngModel)]="name" type="text" class="form-control" />
+                <button (click)="anadirCaracteristicas(indexOfelement)" class=" btn btn-dark">Anadir Caracteristica</button>
+                 
+            </td>
+            
+        </tr>
+</table>
+
