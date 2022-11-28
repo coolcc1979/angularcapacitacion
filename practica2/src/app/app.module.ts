@@ -11,13 +11,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegistrateComponent } from './registrate/registrate.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { FormsModule } from '@angular/forms';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore/'; 
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegistrateComponent,
     DashboardComponent
+
   ],
   imports: [
     BrowserModule,
@@ -25,9 +29,16 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ReactiveFormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    AppRoutingModule
+    AppRoutingModule,
+    SweetAlert2Module.forRoot(),
+    SweetAlert2Module,
+    SweetAlert2Module.forChild(),
+    FormsModule,
+    AngularFirestoreModule
   ],
-  providers: [],
+  providers: [
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

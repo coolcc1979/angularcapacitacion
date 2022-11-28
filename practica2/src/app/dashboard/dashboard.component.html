@@ -1,29 +1,73 @@
 <nav class="navbar navbar-dark bg-primary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Inicio de sesión </a>
-        <a href="/login" class="navbar-text">
+        <a class="navbar-brand" href="#">Registrar Usuario </a>
+        <a (click)="onClick()" class="btn btn-primary btn-lg btn-block">
             Cerrar Sesión
         </a>
     </div>
 </nav>
-<div class="container">
-    <p>Nombre *</p>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <p>País </p>   
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"> 
-    <p>Provincia</p>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <p> Ciudad</p>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <p>Dirección</p>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <p>Teléfono</p>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <p>E-mail</p>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <p>Fecha de nacimiento *</p>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <p>Hobies </p>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    
+<div class="cont">
+    <div class="container">
+        <form [formGroup]="myForm" novalidate (ngSubmit)="submit()"  >
+         <div class="row">
+            <div class="col-6">
+                <p>Nombre *</p>
+                <input type="text" class="form-control" formControlName="nombre" [(ngModel)]="user.nombre" name="nombre">
+                <p *ngIf="myForm.get('nombre')?.hasError('required')">Este campo es requerido</p>
+            </div>
+            <div class="col-6">
+                <p>Provincia</p>
+                <input type="text" class="form-control"  [(ngModel)]="user.provincia" name="provincia">
+            </div>
+         </div>
+           <div class="row">
+            <div class="col-6">
+                <p>País</p>
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="user.pais" name="pais">
+                    <option *ngFor="let item of countries" selected>{{item.name_es}}</option>
+                </select>
+            </div>
+            <div class="col-6">
+                <p>Ciudad</p>
+                <input type="text" class="form-control" name="ciudad"[(ngModel)]="user.ciudad">
+            </div>
+           </div>
+            <div class="row">
+                <div class="col-6">
+                    <p>Dirección</p>
+                    <input type="text" class="form-control" name="direccion" [(ngModel)]="user.direccion">
+                </div>
+            
+                <div class="col-6">
+                    <p>Telefono</p>
+                    <input type="text" class="form-control" name="telefono" [(ngModel)]="user.telefono">
+                </div>
+            </div>
+          <div class="row">
+            <div class="col-6">
+                <p>E-mail</p>
+                <input type="email" class="form-control" name="email" [(ngModel)]="user.email">
+            </div>
+            <div class="col-6">
+                <p>Contraseña</p>
+                <input type="password" class="form-control" name="contrasenia" [(ngModel)]="user.contrasenia">
+            </div>
+          </div>
+        
+           <div class="row">
+            <div class="col-6">
+                <p>Fecha Nacimiento</p>
+                <input type="date" class="form-control" formControlName="fecha" name="fecha" [(ngModel)]="user.fecha">
+                <p *ngIf="myForm.get('fecha')?.hasError('required')">Este campo es requerido</p>
+            </div>
+            <div class="col-6">
+                <p>Hobbies</p>
+                <input type="text" class="form-control" name="hobbie" [(ngModel)]="user.hobbies">
+            </div>
+           </div>
+            <div class="d-flex justify-content-center">
+                <input type="submit" class="mt-3 btn btn-primary" name="enviar" value="Registrar" [disabled]="myForm.invalid" >
+            </div>
+          </form> 
+    </div>
 </div>

@@ -11,7 +11,7 @@
                     <h2>Iniciar Sesion</h2>
                     <div class="form-outline mb-4">
                         <label class="form-label" for="form1Example13">Email:</label>
-                        <input type="email" formControlName="email" class="form-control form-control-lg"  />
+                        <input type="email" formControlName="email" class="form-control form-control-lg" />
                     </div>
 
                     <!-- Password input -->
@@ -20,10 +20,19 @@
                         <input type="password" formControlName="password" class="form-control form-control-lg" />
                     </div>
                     <div class="d-flex justify-content-around align-items-center mb-4">
-                        <a href="#!">Iniciar Sesión</a>
+                        <a href="#!">Registrate</a>
                     </div>
-                    <!-- Submit button -->
+                   <div class="d-flex justify-content-center flex-column">
                     <button type="submit" class="btn btn-primary btn-lg btn-block">Iniciar Sesion</button>
+                    <div class="divider d-flex align-items-center my-4">
+                        <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+                    </div>
+
+                    <a (click)="onClick()" class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" 
+                        role="button">
+                        <i class="fab fa-google"></i>Iniciar con Google
+                    </a>
+                   </div>
                 </form>
             </div>
         </div>
