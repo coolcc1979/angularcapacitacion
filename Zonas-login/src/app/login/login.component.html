@@ -1,0 +1,17 @@
+<div class="login-box">
+    <img src="https://cdn-icons-png.flaticon.com/512/888/888946.png" class="avatar" alt="Avatar Image">
+    <h1>Login de usuario</h1>
+    <form [formGroup]="formularioLogin" (ngSubmit)="onSubmit()">
+        <label class="form-label">Correo electrónico:</label>
+        <input type="text" class="form-control" formControlName="email" placeholder="Ingrese su correo electrónico">
+
+        <label class="form-label">Contraseña:</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="Ingrese una su contraseña">
+
+        <input type="submit" value="Iniciar Sesión">
+        
+        <div class="row">
+            <p>No tienes cuenta? <a href="/register">Regístrate Ahora</a></p>
+        </div>
+    </form>
+</div>

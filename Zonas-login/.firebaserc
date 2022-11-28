@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "authlogin-726fd": {
+      "hosting": {
+        "Zonas-login": [
+          "authlogin-726fd"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "authlogin-726fd"
+  }
+}
