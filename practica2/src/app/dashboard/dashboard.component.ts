@@ -32,6 +32,14 @@ export class DashboardComponent implements OnInit {
        this.myForm = this.fb.group({
       nombre: ['', [Validators.required]],
       fecha: ['', [Validators.required]],
+      pais: [''],
+      direccion: [''],
+      provincia: [''],
+      ciudad: [''],
+      telefono: [''],
+      email: [''],
+      contrasenia: [''],
+      hobbies: [''],
     });
     }
 

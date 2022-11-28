@@ -17,40 +17,40 @@
             </div>
             <div class="col-6">
                 <p>Provincia</p>
-                <input type="text" class="form-control"  [(ngModel)]="user.provincia" name="provincia">
+                <input type="text" class="form-control" formControlName="provincia"  [(ngModel)]="user.provincia" name="provincia">
             </div>
          </div>
            <div class="row">
             <div class="col-6">
                 <p>País</p>
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="user.pais" name="pais">
+                <select class="form-select form-select-lg mb-3" formControlName="pais" aria-label=".form-select-lg example" [(ngModel)]="user.pais" name="pais">
                     <option *ngFor="let item of countries" selected>{{item.name_es}}</option>
                 </select>
             </div>
             <div class="col-6">
                 <p>Ciudad</p>
-                <input type="text" class="form-control" name="ciudad"[(ngModel)]="user.ciudad">
+                <input type="text" class="form-control" formControlName="ciudad" name="ciudad"[(ngModel)]="user.ciudad">
             </div>
            </div>
             <div class="row">
                 <div class="col-6">
                     <p>Dirección</p>
-                    <input type="text" class="form-control" name="direccion" [(ngModel)]="user.direccion">
+                    <input type="text" class="form-control" name="direccion" formControlName="direccion" [(ngModel)]="user.direccion">
                 </div>
             
                 <div class="col-6">
                     <p>Telefono</p>
-                    <input type="text" class="form-control" name="telefono" [(ngModel)]="user.telefono">
+                    <input type="text" class="form-control" formControlName="telefono" name="telefono" [(ngModel)]="user.telefono">
                 </div>
             </div>
           <div class="row">
             <div class="col-6">
                 <p>E-mail</p>
-                <input type="email" class="form-control" name="email" [(ngModel)]="user.email">
+                <input type="email" class="form-control" formControlName="email" name="email" [(ngModel)]="user.email">
             </div>
             <div class="col-6">
                 <p>Contraseña</p>
-                <input type="password" class="form-control" name="contrasenia" [(ngModel)]="user.contrasenia">
+                <input type="password" formControlName="contrasenia" class="form-control" name="contrasenia" [(ngModel)]="user.contrasenia">
             </div>
           </div>
         
@@ -62,7 +62,7 @@
             </div>
             <div class="col-6">
                 <p>Hobbies</p>
-                <input type="text" class="form-control" name="hobbie" [(ngModel)]="user.hobbies">
+                <input type="text" class="form-control" formControlName="hobbies" name="hobbie" [(ngModel)]="user.hobbies">
             </div>
            </div>
             <div class="d-flex justify-content-center">
