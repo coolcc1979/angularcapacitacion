@@ -16,6 +16,9 @@
             required
           />
         </div>
+        <small class="text-error" *ngIf="idAnimal.touched && idAnimal.errors?.['required']">
+          Es necesario agregar el id
+      </small>
       </div>
 
       <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
