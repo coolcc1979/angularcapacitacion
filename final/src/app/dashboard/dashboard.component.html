@@ -1,0 +1,58 @@
+
+
+<header class="py-3 mb-4 text-light">
+    <div class="container-fluid d-flex justify-content-between">
+        <div class="logo">
+                <img [src]="logo" alt="">
+        </div>
+        <div class="cerrar-sesion"  (click)="logout()">
+          cerrar sesión
+        </div>
+    </div>
+</header>
+<div class="container-fluid pb-3 flex-grow-1 d-flex flex-column flex-sm-row overflow-auto">
+    <div class="row flex-grow-sm-1 flex-grow-0 ">
+        <aside class="col-sm-2  sticky-top">
+            <div class=" bg-dark rounded-3 p-1 h-100 sticky-top">
+                <ul class="nav nav-pills flex-sm-column flex-row mb-auto justify-content-between text-truncate ">
+                    <li class="nav-item ">
+                        <a  (click)="seleccionarMenu(1)" class="nav-link px-2 text-truncate justify-content-center ">
+                            <i class="bi bi-people"></i>
+                            <span class="d-none d-sm-inline px-3">Personajes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a  (click)="seleccionarMenu(2)" class="nav-link px-2 x text-truncate r">
+                            <i class="bi bi-laptop fs-5"></i>
+                            <span class="d-none d-sm-inline px-3">Peliculas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a (click)="seleccionarMenu(3)"  class="nav-link px-2 text-truncate "><i class="bi bi-card-text fs-5"></i>
+                            <span class="d-none d-sm-inline px-3">Comics</span> </a>
+                    </li>
+                    <li>
+                        <a (click)="seleccionarMenu(4)"  class="nav-link px-2 text-truncate "><i class="bi bi-pencil fs-5"></i>
+                            <span class="d-none d-sm-inline px-3">Crea tu película</span> </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <main class="col overflow-auto h-100">
+            <div class="bg-dark text-light  rounded-3 p-3 " [ngSwitch]="opcionMenu">
+                <div *ngSwitchCase="1">
+                    <app-personajes></app-personajes>
+                </div>
+                <div *ngSwitchCase="2">
+                    <app-series></app-series>
+                </div>
+                <div *ngSwitchCase="3">
+                    <app-comics></app-comics>
+                </div>
+                <div *ngSwitchCase="4">
+                    <app-datos></app-datos>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>

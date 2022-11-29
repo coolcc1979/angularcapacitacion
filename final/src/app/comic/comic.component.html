@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="text-center">
+        
+        <h1 class="titulo text-white"> {{title}}: <small>{{comic.title}}</small></h1>
+    
+    </div>
+    
+    
+        <div class="row text-white">
+            <div class="col-sm-6">
+                <img src="{{comic.thumbnailPath}}.{{comic.thumbnailExtension}}" alt="..." class="img-thumbnail">
+            </div>
+            <div class="col-sm-6">
+    
+                <p><strong>Descripcion:</strong> {{comicDesc}}</p>
+                
+                <a href="{{comic.urls}}" target="_blank" class="btn btn-outline-danger btn-block">Mas detalles</a><br>
+    
+                <a routerLink="/dashboard" class="float-right text-danger">Volver</a>
+    
+    
+            </div>
+        </div>
+</div>

@@ -1,0 +1,54 @@
+<h2 class="text-light justify-content-center d-flex">Crea tu ficha de  Actor </h2>
+<div class=" row  row-cols-md-2 container">
+    <div class="col-6">
+        <h3>Ingresar datos </h3>
+                    <div class="mb-3">
+                        <label class="form-label">Id</label>
+                        <input type="text" class="form-control" required id="id" [(ngModel)]="actor.id" >
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Nombre</label>
+                        <input type="text" class="form-control" required id="nombre" [(ngModel)]="actor.nombre">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Genero</label>
+                        <input type="text" class="form-control" required id="genero" [(ngModel)]="actor.genero">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Películas</label>
+                        <div class="d-flex">
+                            <input type="text" class="form-control" required id="pelis" [(ngModel)]="pelicula">
+                        <button  (click)="agregarPeli()"  class="btn btn-danger">+</button>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Imagen Url</label>
+                        <input type="text" class="form-control" required id="imagen" [(ngModel)]="actor.imagen">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Comics</label>
+                        <div class="d-flex">
+                            <input type="text" class="form-control" required id="comics" [(ngModel)]="comic">
+                        <button (click)="agregarComic()" class="btn btn-danger">+</button>
+                        </div>
+                    </div>
+                    <button (click)="agregar()" class="btn btn-warning">Agregar</button>
+        </div>
+        <div class="col-6">
+            <h3>Visualizacion de Informacion </h3>
+            <p>Id: {{actor.id}}</p>
+            <p>Nombre: {{actor.nombre}}</p>
+            <p>Genero: {{actor.genero}}</p>
+            <p>Peliculas:</p>
+            <ul *ngFor="let pelis of peliculas; let i = index">
+                <li>{{pelis}}</li>
+            </ul>
+            <p>Comics:</p>
+            <ul *ngFor="let comi of comics; let j = index">
+                <li>{{comi}}</li>
+            </ul>
+            <img [src]="actor.imagen">
+
+        </div>
+</div>
