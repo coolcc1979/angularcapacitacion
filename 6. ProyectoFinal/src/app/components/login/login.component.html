@@ -1,0 +1,227 @@
+<div class="container mt-4 content-bg-wrap">
+  <div class="row">
+    <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+      <iframe
+        style="width: 100%; height: 300px"
+        src="https://embed.lottiefiles.com/animation/38435"
+      ></iframe>
+    </div>
+
+    <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 bg-login">
+      <div class="alert alert-danger" role="alert" *ngIf="displayErrorLogin">
+        Error con el correo o contraseña..
+      </div>
+      <h6>Ingresa a tu cuenta</h6>
+      <br />
+
+      <form novalidate (ngSubmit)="login()" #formLogin="ngForm">
+        <div class="row">
+          <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="mb-3">
+              <label for="emailInputId" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="emailInputId"
+                placeholder="name@example.com"
+                [(ngModel)]="credenciales.email"
+                name="email"
+                #email="ngModel"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                required
+              />
+
+              <small
+                class="text-errors"
+                *ngIf="email.touched &&  email.errors?.['required']"
+              >
+                Campo requerido
+              </small>
+              <small class="text-errors" *ngIf="email.errors?.['pattern']">
+                Ingrese un correo valido
+              </small>
+            </div>
+          </div>
+          <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="mb-3">
+              <label for="passInputId" class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                id="passInputId"
+                [(ngModel)]="credenciales.password"
+                name="password"
+                #password="ngModel"
+                minlength="8"
+                required
+              />
+              <small
+                class="text-errors"
+                *ngIf="password.touched &&  password.errors?.['required']"
+              >
+                Campo requerido
+              </small>
+            </div>
+          </div>
+        </div>
+        <button
+          class="btn btn-primary"
+          style="width: 100%"
+          [disabled]="formLogin.invalid"
+        >
+          Ingresar
+        </button>
+        <p class="mt-2">
+          ¿No tienes una cuenta?
+          <a
+            href="javascript:void(0);"
+            style="color: #f7961c"
+            data-bs-toggle="modal"
+            #btnModal
+            data-bs-target="#exampleModal"
+          >
+            ¡Regístrate ahora!
+          </a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="alert alert-danger" role="alert" *ngIf="displayErrorRegister">
+        {{ messageError }}
+      </div>
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Crea tu cuenta</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form
+          novalidate
+          (ngSubmit)="createAccountUser(formAccountUser)"
+          #formAccountUser="ngForm"
+        >
+          <div class="row">
+            <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="mb-3">
+                <label for="emailUserInput" class="form-label">Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="emailUserInput"
+                  placeholder="name@example.com"
+                  [(ngModel)]="newUser.email"
+                  name="userEmail"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
+                  #emailUser="ngModel"
+                  required
+                />
+                <small
+                  class="text-errors"
+                  *ngIf="emailUser.touched &&  emailUser.errors?.['required']"
+                >
+                  Campo requerido
+                </small>
+                <small
+                  class="text-errors"
+                  *ngIf="emailUser.errors?.['pattern']"
+                >
+                  Ingrese un correo valido
+                </small>
+              </div>
+            </div>
+            <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="mb-3">
+                <label for="passUserId" class="form-label">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="passUserId"
+                  [(ngModel)]="newUser.password"
+                  name="passUser"
+                  #passUser="ngModel"
+                  minlength="8"
+                  required
+                  (keyup)="validarPass()"
+                />
+                <div class="">
+                  <small
+                    class="text-errors d-block"
+                    *ngIf="passUser.touched &&  passUser.errors?.['required']"
+                  >
+                    Campo requerido
+                  </small>
+                  <small
+                    class="text-errors d-block"
+                    *ngIf="passUser.errors?.['minlength']"
+                  >
+                    Ingrese al menos 8 caracteres
+                  </small>
+                  <small class="text-errors d-block" *ngIf="displayErrorNumero">
+                    Ingrese al menos un numero
+                  </small>
+                  <small class="text-errors d-block" *ngIf="displayErrorLetra">
+                    Ingrese al menos una letra
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="mb-3">
+                <label for="passUserRepeatId" class="form-label"
+                  >Repetir password</label
+                >
+                <input
+                  type="password"
+                  class="form-control"
+                  id="passUserRepeatId"
+                  [(ngModel)]="repeatPassword"
+                  name="passUserRepeat"
+                  #repeatPass="ngModel"
+                  (keyup)="passwordIguales()"
+                  required
+                />
+
+                <small
+                  class="text-errors d-block"
+                  *ngIf="repeatPass.touched &&  repeatPass.errors?.['required']"
+                >
+                  Campo requerido
+                </small>
+
+                <small
+                  class="text-errors d-block"
+                  *ngIf="displayPasswordsNoIguales"
+                >
+                  Passwords no son iguales
+                </small>
+              </div>
+            </div>
+          </div>
+          <button
+            class="btn btn-primary"
+            style="width: 100%"
+            [disabled]="formAccountUser.invalid"
+          >
+            Completar Registro
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

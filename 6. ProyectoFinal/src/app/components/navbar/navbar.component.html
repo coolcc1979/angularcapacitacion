@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #e3f2fd">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="../../../assets/marvel.png" alt="Bootstrap" style="width: 100px; height: auto;" />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">
+            Bienvenido
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="items-navbar">
+      <a  [routerLink]="['/home']">
+        <i class="bi bi-house"></i>
+      </a>
+    </div>
+
+    <div class="btn-group">
+      <a
+        class="nav-link dropdown-toggle"
+        href="#"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <img class="img-perfil" src="../../../assets/groot.png" alt="">
+      </a>
+      <ul class="dropdown-menu dropdown-menu-lg-end">
+        <li><a class="dropdown-item" [routerLink]="['/perfil']">Perfil</a></li>
+        <li><a class="dropdown-item" [routerLink]="['/dashboard/mis-personajes']" >Mis personajes</a></li>
+        <li><hr class="dropdown-divider" /></li>
+        <li>
+          <a
+            class="dropdown-item"
+            href="javascript:void(0);"
+            type="button"
+            (click)="logout()"
+          >
+            Cerrar sesion
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

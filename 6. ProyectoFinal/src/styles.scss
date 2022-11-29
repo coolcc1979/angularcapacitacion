@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+body {
+    background-image: url(https://s3-us-west-2.amazonaws.com/cdn.quikly.app/img/bg-wrap.png);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    will-change: background-position;
+    background-size: contain;
+}
+
+.text-errors{
+    color: #e22721;
+}
+

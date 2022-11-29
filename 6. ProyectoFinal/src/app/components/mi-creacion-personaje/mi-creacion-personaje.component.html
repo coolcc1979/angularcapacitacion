@@ -1,0 +1,396 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <!-- Button trigger modal -->
+  <button
+    type="button"
+    class="btn btn-warning"
+    data-bs-toggle="modal"
+    #btnModalPersonaje
+    data-bs-target="#modalCrearPersonaje"
+  >
+    Crear personaje
+  </button>
+
+  <div *ngIf="personajesList.length > 0; else noPersonajes">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Imagen</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Descripcion</th>
+          <th scope="col">Comics</th>
+          <th scope="col">Series</th>
+          <th scope="col">Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let personaje of personajesList; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>
+            <img
+              class="img-personaje"
+              [src]="personaje.image"
+              [alt]="personaje.name"
+            />
+          </td>
+          <td>
+            {{ personaje.name }}
+          </td>
+          <td>
+            {{
+              personaje.description
+                ? (personaje.description | slice: 0:50) + "..."
+                : "Sin descripcion"
+            }}
+          </td>
+
+          <td>
+            <ul>
+              <li *ngFor="let comic of personaje.comics">
+                {{ comic.name }}
+              </li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li *ngFor="let serie of personaje.series">
+                {{ serie.name }}
+              </li>
+            </ul>
+          </td>
+          <td>
+            <i
+              class="bi bi-pencil-square"
+              (click)="showUpdatePersonaje(personaje)"
+            ></i>
+            <i
+              class="bi bi-trash3-fill"
+              (click)="deletePersonaje(personaje)"
+            ></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Modal Create -->
+<div
+  class="modal fade modal-lg"
+  id="modalCrearPersonaje"
+  tabindex="-1"
+  aria-labelledby="modalCrearPersonaje"
+  aria-hidden="true"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Personaje</h1>
+      </div>
+      <div class="modal-body">
+        <form
+          novalidate
+          (ngSubmit)="savePersonaje(formPersonaje, 'C')"
+          #formPersonaje="ngForm"
+          autocomplete="off"
+        >
+          <div class="row">
+            <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+              <div class="mb-3">
+                <label for="nombreInput" class="form-label">Nombre</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nombreInput"
+                  [(ngModel)]="personaje.name"
+                  #nombre="ngModel"
+                  name="nombrePersonaje"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+              <div class="mb-3">
+                <label for="imgInput" class="form-label">Imagen</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="imgInput"
+                  [(ngModel)]="personaje.image"
+                  #urlImagen="ngModel"
+                  name="urlImagen"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="mb-3">
+                <label for="descripcionInput" class="form-label"
+                  >Descripcion</label
+                >
+                <textarea
+                  class="form-control"
+                  id="descripcionInput"
+                  rows="3"
+                  [(ngModel)]="personaje.description"
+                  #descripcion="ngModel"
+                  name="descripcion"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+              <div class="mb-3">
+                <label for="comicInput" class="form-label">Comics</label>
+                <div class="d-flex">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="comicInput"
+                    [(ngModel)]="comicAux.name"
+                    name="comicAux"
+                  />
+                  <button
+                    class="btn btn-add"
+                    type="button"
+                    (click)="addComic('C')"
+                  >
+                    <i class="bi bi-plus-circle-fill"></i>
+                  </button>
+                </div>
+              </div>
+
+              <ul
+                *ngIf="personaje.comics && personaje.comics.length > 0"
+                class="hg-items"
+              >
+                <li *ngFor="let comic of personaje.comics; index as i">
+                  {{ comic.name }}
+
+                  <i class="bi bi-trash3-fill" (click)="deleteComic(i, 'C')"></i>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+              <div class="mb-3">
+                <label for="serieInput" class="form-label">Series</label>
+                <div class="d-flex">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="serieInput"
+                    [(ngModel)]="serieAuxx.name"
+                    name="serieAux"
+                    #serieAux="ngModel"
+                  />
+                  <button
+                    class="btn btn-add"
+                    type="button"
+                    (click)="addSerie('C')"
+                  >
+                    <i class="bi bi-plus-circle-fill"></i>
+                  </button>
+                </div>
+              </div>
+              <ul
+                *ngIf="personaje.series && personaje.series.length > 0"
+                class="hg-items"
+              >
+                <li *ngFor="let serie of personaje.series; index as i">
+                  {{ serie.name }}
+                  <i class="bi bi-trash3-fill" (click)="deleteSerie(i, 'C')"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button
+            type="button"
+            (click)="closeModal(formPersonaje, 'C')"
+            class="btn btn-secondary"
+          >
+            Cerrar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Update -->
+<div
+  class="modal fade modal-lg"
+  id="modalUpdatePersonaje"
+  tabindex="-1"
+  aria-labelledby="modalUpdatePersonaje"
+  aria-hidden="true"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Actualizar personaje
+        </h1>
+      </div>
+      <div class="modal-body">
+        <form
+          novalidate
+          (ngSubmit)="savePersonaje(formUpdatePersonaje, 'U')"
+          #formUpdatePersonaje="ngForm"
+          autocomplete="off"
+        >
+          <div class="row">
+            <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+              <div class="mb-3">
+                <label for="nombreInput" class="form-label">Nombre</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="nombreInput"
+                  [(ngModel)]="personajeUpate.name"
+                  #nombre="ngModel"
+                  name="nombrePersonaje"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+              <div class="mb-3">
+                <label for="imgInput" class="form-label">Imagen</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="imgInput"
+                  [(ngModel)]="personajeUpate.image"
+                  #urlImagen="ngModel"
+                  name="urlImagen"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="col col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+              <div class="mb-3">
+                <label for="descripcionInput" class="form-label"
+                  >Descripcion</label
+                >
+                <textarea
+                  class="form-control"
+                  id="descripcionInput"
+                  rows="3"
+                  [(ngModel)]="personajeUpate.description"
+                  #descripcion="ngModel"
+                  name="descripcion"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+              <div class="mb-3">
+                <label for="comicInput" class="form-label">Comics</label>
+                <div class="d-flex">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="comicInput"
+                    [(ngModel)]="comicAux.name"
+                    name="comicAux"
+                  />
+                  <button
+                    class="btn btn-add"
+                    type="button"
+                    (click)="addComic('U')"
+                  >
+                    <i class="bi bi-plus-circle-fill"></i>
+                  </button>
+                </div>
+              </div>
+
+              <ul
+                *ngIf="
+                  personajeUpate.comics && personajeUpate.comics.length > 0
+                "
+                class="hg-items"
+              >
+                <li *ngFor="let comic of personajeUpate.comics; index as i">
+                  {{ comic.name }}
+
+                  <i class="bi bi-trash3-fill" (click)="deleteComic(i, 'U')"></i>
+                </li>
+              </ul>
+            </div>
+
+            <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+              <div class="mb-3">
+                <label for="serieInput" class="form-label">Series</label>
+                <div class="d-flex">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="serieInput"
+                    [(ngModel)]="serieAuxx.name"
+                    name="serieAux"
+                    #serieAux="ngModel"
+                  />
+                  <button
+                    class="btn btn-add"
+                    type="button"
+                    (click)="addSerie('U')"
+                  >
+                    <i class="bi bi-plus-circle-fill"></i>
+                  </button>
+                </div>
+              </div>
+              <ul
+                *ngIf="
+                  personajeUpate.series && personajeUpate.series.length > 0
+                "
+                class="hg-items"
+              >
+                <li *ngFor="let serie of personajeUpate.series; index as i">
+                  {{ serie.name }}
+                  <i class="bi bi-trash3-fill" (click)="deleteSerie(i, 'U')"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Guardar</button>
+          <button
+            type="button"
+            (click)="closeModal(formPersonaje, 'U')"
+            class="btn btn-secondary"
+          >
+            Cerrar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noPersonajes>
+  <div class="alert alert-danger" role="alert">
+    No existe personajes, Agregue
+  </div>
+</ng-template>
+
+<button
+  type="button"
+  class="btn btn-warning"
+  data-bs-toggle="modal"
+  #btnModalUpdatePersonaje
+  data-bs-target="#modalUpdatePersonaje"
+  style="display: none"
+>
+  Crear personaje
+</button>

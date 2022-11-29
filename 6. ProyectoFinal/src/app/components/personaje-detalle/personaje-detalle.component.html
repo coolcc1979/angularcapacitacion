@@ -1,0 +1,66 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+  <div class="btn-return mb-4">
+    <a [routerLink]="['/home']">
+      <i class="bi bi-arrow-return-left"></i>
+    </a>
+  </div>
+
+  <div class="row">
+    <div class="col col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+      <img
+        style="width: 100%; height: auto"
+        [src]="personaje.image"
+        [alt]="personaje.name"
+      />
+    </div>
+
+    <div class="col col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
+      <h6>{{ personaje.name }}</h6>
+      <hr />
+      <p>
+        <strong>Descripcion</strong> :
+        {{ personaje.description ? personaje.description : "Sin descripcion" }}
+      </p>
+
+      <div class="d-flex justify-content-between">
+        <div>
+          <p><strong>Comics:</strong></p>
+          <ul
+            *ngIf="
+              personaje.comics && personaje.comics.length > 0;
+              else noComics
+            "
+          >
+            <li *ngFor="let comic of personaje.comics">
+              {{ comic.name }}
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <p><strong>Series:</strong></p>
+          <ul
+            *ngIf="
+              personaje.series && personaje.series.length > 0;
+              else noSeries
+            "
+          >
+            <li *ngFor="let serie of personaje.series">
+              {{ serie.name }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #noComics>
+  <h6 style="color: #e22721">{{ personaje.name }} no tiene comics...</h6>
+</ng-template>
+
+<ng-template #noSeries>
+  <h6 style="color: #e22721">{{ personaje.name }} no tiene series...</h6>
+</ng-template>

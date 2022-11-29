@@ -1,0 +1,5 @@
+export const API_PUBLIC_KEY: string = '388421eb90ba9cdc9e14b3059db96d26'
+export const API_PRIVATE_KEY: string = 'e98f30df08c17900e50016abe7715582974c556b'
+export const TIMESTAMP: string = '1'
+export const HASH = 'd05f38c6887447c8ed3b0b9e7308a196'
+export const BASE_URL = 'http://gateway.marvel.com'

@@ -1,0 +1,32 @@
+<app-navbar></app-navbar>
+
+<div class="container card-characters">
+  <div class="row">
+    <h5>Personajes</h5>
+    <hr />
+    <div
+      class="col col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6"
+      *ngFor="let personaje of personajes"
+    >
+      <app-personaje [personaje]="personaje"></app-personaje>
+    </div>
+
+    <h5>Mis personajes</h5>
+    <hr />
+
+    <ng-container *ngIf="myPersonajesList.length > 0; else noPersonajes">
+      <div
+        class="col col-xl-3 col-lg-3 col-md-4 col-sm-6 col-6"
+        *ngFor="let myPersonaje of myPersonajesList"
+      >
+        <app-personaje [personaje]="myPersonaje"></app-personaje>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<ng-template #noPersonajes>
+  <div class="alert alert-danger" role="alert">
+    No existe personajes, Agregue <a [routerLink]="['/dashboard/mis-personajes']">aqui</a>
+  </div>
+</ng-template>

@@ -1,0 +1,241 @@
+<app-navbar></app-navbar>
+<div class="container mt-4 bg-perfil">
+  <form novalidate (ngSubmit)="createPerfil(formPerfil)" #formPerfil="ngForm">
+    <div class="row">
+      <div class="col col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+        <div class="mb-3">
+          <label for="nombreInput" class="form-label"> Nombre </label>
+          <input
+            type="text"
+            class="form-control"
+            id="nombreInput"
+            [(ngModel)]="perfil.nombre"
+            name="nombre"
+            #nombre="ngModel"
+            minlength="3"
+            required
+          />
+          <small
+            class="text-errors"
+            *ngIf="nombre.touched && nombre.errors?.['required']"
+          >
+            Es necesario agregar el nombre
+          </small>
+          <small class="text-errors" *ngIf="nombre.errors?.['minlength']">
+            Es necesario agregar minimo 3 caracteres
+          </small>
+        </div>
+      </div>
+      <div class="col col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+        <div>
+          <label for="paisesSelect">Pais</label>
+
+          <select
+            class="form-select"
+            id="paisesSelect"
+            required
+            name="pais"
+            #pais="ngModel"
+            [(ngModel)]="perfil.pais"
+          >
+            <option value="">Seleccione:</option>
+            <option [value]="pais" *ngFor="let pais of paises">
+              {{ pais }}
+            </option>
+          </select>
+          <small
+            class="text-errors"
+            *ngIf="pais.touched && pais.errors?.['required']"
+          >
+            Es necesario seleccionar el pais
+          </small>
+        </div>
+      </div>
+
+      <div class="col col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+        <div class="mb-3">
+          <label for="provinciaInput" class="form-label"> Provincia </label>
+          <input
+            type="text"
+            class="form-control"
+            id="provinciaInput"
+            [(ngModel)]="perfil.provincia"
+            name="provincia"
+            #provincia="ngModel"
+            minlength="3"
+            required
+          />
+
+          <small
+            class="text-errors"
+            *ngIf="provincia.touched && provincia.errors?.['required']"
+          >
+            Es necesario agregar la provincia
+          </small>
+
+          <small class="text-errors" *ngIf="provincia.errors?.['minlength']">
+            Es necesario agregar minimo 3 caracteres
+          </small>
+        </div>
+      </div>
+
+      <div class="col col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
+        <div class="mb-3">
+          <label for="ciudadInput" class="form-label"> Ciudad </label>
+          <input
+            type="text"
+            class="form-control"
+            id="ciudadInput"
+            [(ngModel)]="perfil.ciudad"
+            name="ciudad"
+            #ciudad="ngModel"
+            minlength="3"
+            required
+          />
+
+          <small
+            class="text-errors"
+            *ngIf="ciudad.touched && ciudad.errors?.['required']"
+          >
+            Es necesario agregar la ciudad
+          </small>
+
+          <small class="text-errors" *ngIf="ciudad.errors?.['minlength']">
+            Es necesario agregar minimo 3 caracteres
+          </small>
+        </div>
+      </div>
+
+      <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+        <div class="mb-3">
+          <label for="direccionInput" class="form-label"> Direccion </label>
+          <input
+            type="text"
+            class="form-control"
+            id="direccionInput"
+            [(ngModel)]="perfil.direccion"
+            name="direccion"
+            #direccion="ngModel"
+            minlength="10"
+            required
+          />
+          <small
+            class="text-errors"
+            *ngIf="direccion.touched && direccion.errors?.['required']"
+          >
+            Es necesario agregar la direccion
+          </small>
+
+          <small class="text-errors" *ngIf="direccion.errors?.['minlength']">
+            Es necesario agregar minimo 10 caracteres
+          </small>
+        </div>
+      </div>
+
+      <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+        <div class="mb-3">
+          <label for="telefonoInput" class="form-label"> Telefono </label>
+          <input
+            type="text"
+            class="form-control"
+            id="telefonoInput"
+            [(ngModel)]="perfil.telefono"
+            name="telefono"
+            #telefono="ngModel"
+            pattern="[0-9]+"
+            minlength="7"
+            maxlength="13"
+            required
+          />
+
+          <small
+            class="text-errors"
+            *ngIf="telefono.touched && telefono.errors?.['required']"
+          >
+            Es necesario agregar el telefono
+          </small>
+
+          <small
+            class="text-errors"
+            *ngIf="telefono.errors?.['minlength'] || telefono.errors?.['pattern']"
+          >
+            Telefono invalido
+          </small>
+        </div>
+      </div>
+
+      <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+        <div class="mb-3">
+          <label for="emailInput" class="form-label"> Email </label>
+          <input
+            readonly
+            type="email"
+            class="form-control"
+            id="emailInput"
+            [(ngModel)]="perfil.email"
+            name="email"
+            #email="ngModel"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+        <div class="mb-3">
+          <label for="fechaNacimientoId" class="form-label">
+            Fecha de Nacimiento
+          </label>
+          <input
+            type="date"
+            class="form-control"
+            id="fechaNacimientoId"
+            [(ngModel)]="perfil.fechaNacimiento"
+            name="fechaNacimiento"
+            #fechaNacimiento="ngModel"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+        <div class="mb-3">
+          <label for="hobbieId" class="form-label"> Hobbie </label>
+          <div class="d-flex">
+            <input
+              type="text"
+              class="form-control"
+              id="hobbieId"
+              [(ngModel)]="hobbieAux"
+              name="hobbie"
+              minlength="5"
+              #hobbie="ngModel"
+            />
+            <button class="btn btn-add" type="button" (click)="addHobbie()">
+              <i class="bi bi-plus-circle-fill"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6">
+        <button
+          class="btn btn-primary"
+          type="submit"
+          [disabled]="formPerfil.invalid"
+        >
+          Agregar
+        </button>
+      </div>
+
+      <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-6 mt-4 mb-4">
+        <h6>Hobbies:</h6>
+        <ul>
+          <li *ngFor="let hobbie of perfil.hobies; index as i">
+            {{ hobbie }}
+            <i class="bi bi-trash3-fill" (click)="deleteHobbie(i)"></i>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </form>
+</div>
