@@ -1,0 +1,103 @@
+<app-header></app-header>
+<div class="container" *ngIf="isNew else newUser">
+    <br>
+    <h2>Datos Personales</h2>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Nombre</h5>
+                    <p class="card-text">{{usuario.nombre}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Teléfono</h5>
+                    <p class="card-text">{{usuario.telefono}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">E-mail</h5>
+                    <p class="card-text">{{usuario.email}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Fecha de Nacimiento</h5>
+                    <p class="card-text">{{usuario.fechaNacimiento}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><h2>Ubicación geográfica</h2>
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">País</h5>
+                    <p class="card-text">{{usuario.pais}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Provincia</h5>
+                    <p class="card-text">{{usuario.provincia}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Ciudad</h5>
+                    <p class="card-text">{{usuario.ciudad}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Dirección</h5>
+                    <p class="card-text">{{usuario.direccion}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><h2>Adicional</h2>
+    <div class="row row-cols-1 row-cols-md-1 g-4">
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Hobies</h5>
+                    <p class="card-text" *ngFor="let hob of usuario.hobies">{{hob}}</p>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col-3">
+            <button class="btn btn-primary" routerLink="/edit">Modificar Perfil</button>
+        </div>
+    </div>
+</div>
+
+<ng-template #newUser>
+    <div class="container">
+        <br>
+        <h2>Usuario Nuevo</h2>
+        <p>Tu perfil es nuevo. Debes registrar tu información.</p>
+        <div class="row">
+            <div class="col-3">
+                <button class="btn btn-primary" routerLink="/edit">Registrar Perfil</button>
+            </div>
+        </div>
+    </div>
+</ng-template>

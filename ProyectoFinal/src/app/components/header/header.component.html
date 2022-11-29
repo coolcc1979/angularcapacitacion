@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark color-nav">
+    <div class="container-fluid">
+        <img [src]="urlImg" class="navbar-brand" width="80px">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="" >Home</a>
+                </li>
+                <li class="nav-item" *ngIf="!isLoged">
+                    <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+                </li>
+                <li class="nav-item" *ngIf="!isLoged">
+                    <a class="nav-link" routerLink="/register" routerLinkActive="active">Registrar</a>
+                </li>
+                <li class="nav-item" *ngIf="isLoged">
+                    <a class="nav-link" routerLink="/heroes" routerLinkActive="active">Heroes</a>
+                </li>
+                <li class="nav-item" *ngIf="isLoged">
+                    <a class="nav-link" routerLink="/perfil" routerLinkActive="active">Perfil</a>
+                </li>
+                <li class="nav-item" *ngIf="isLoged">
+                    <a class="nav-link" (click)="logout()">LogOut</a>
+                </li>
+            </ul>
+            <div class="d-flex">
+                <div class="titulo" *ngIf="isNew else title">Hola, {{display}}</div>
+                <ng-template #title>
+                    <div class="titulo">{{titulo}}</div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,150 @@
+<app-header></app-header>
+<div class="container">
+    <br>
+    <div class="centro">
+        <h2>Marvel Heroes</h2>
+    </div><br>
+    <div class="row">
+        <div class="col-4 d-flex" style="height: 36px; margin-top:34px">
+            <input class="form-control" type="search" placeholder="Nombre del Heroe" aria-label="Search"
+                [(ngModel)]="valueSearch">&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-outline-success" (click)="searchName()"> Buscar </button>
+        </div>
+        <div class="col-3" style="height: 36px; margin-top:32px">
+            <button class="btn btn-danger" (click)="generalList()">Limpiar Filtros</button>&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-secondary" routerLink="/newheroe">Crear Heroe</button>
+        </div>
+        <div class="col-3">
+            <label class="form-label">Selecciona un orden</label>
+            <select class="form-select" (change)="filterOrder()" [(ngModel)]="orderBy">
+                <option value="asc">Ascendente A - Z</option>
+                <option value="desc">Descendente Z - A</option>
+            </select>
+        </div>
+        <div class="col-2" style="height: 36px; margin-top:32px;">
+            <nav aria-label="Page navigation example" style="margin-left: 28px;">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" aria-label="Previous" (click)="preview()">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" (click)="change(0)">1</a></li>
+                    <li class="page-item"><a class="page-link" (click)="change(15)">2</a></li>
+                    <li class="page-item"><a class="page-link" (click)="change(30)">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" aria-label="Next" (click)="next()">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div><br>
+    <h2>Conoce tus heroes aquí</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let heroe of heroes">
+            <div class="card h-100">
+                <div class="card-body">
+                    <img [src]="heroe.imagen" class="card-img-top imagen" alt="..."><br>
+                    <br>
+                    <h5 class="card-title">{{heroe.nombre}}</h5><br>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                [attr.data-bs-target]="'#info'+heroe.id" type="button" role="tab"
+                                aria-controls="comics" aria-selected="true">Info</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="home-tab" data-bs-toggle="tab"
+                                [attr.data-bs-target]="'#comics'+heroe.id" type="button" role="tab"
+                                aria-controls="comics" aria-selected="true">Comics ({{heroe.comics.returned}})</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                [attr.data-bs-target]="'#series'+heroe.id" type="button" role="tab"
+                                aria-controls="series" aria-selected="false">Series ({{heroe.series.returned}})</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
+                                [attr.data-bs-target]="'#stories'+heroe.id" type="button" role="tab"
+                                aria-controls="stories" aria-selected="false">Stories
+                                ({{heroe.stories.returned}})</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="info{{heroe.id}}" role="tabpanel"
+                            aria-labelledby="comics">
+                            <div class="overflow-auto" style="height: 150px;"><br>
+                                <p>{{heroe.info}}</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="comics{{heroe.id}}" role="tabpanel"
+                            aria-labelledby="comics">
+                            <div class="overflow-auto" style="height: 150px;"><br>
+                                <p *ngFor="let comic of heroe.comics.items">{{comic.name}}</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="series{{heroe.id}}" role="tabpanel" aria-labelledby="series">
+                            <div class="overflow-auto" style="height: 150px;"><br>
+                                <p *ngFor="let serie of heroe.series.items">{{serie.name}}</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="stories{{heroe.id}}" role="tabpanel" aria-labelledby="stories">
+                            <div class="overflow-auto" style="height: 150px;"><br>
+                                <p *ngFor="let story of heroe.stories.items">{{story.name}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let heroe of heroesDb">
+            <div class="card h-100">
+                <div class="card-body">
+                    <img [src]="heroe.imagen" class="card-img-top imagen" alt="..."><br>
+                    <br>
+                    <h5 class="card-title">{{heroe.nombre}}</h5><br>
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
+                                [attr.data-bs-target]="'#comics'+heroe.id" type="button" role="tab"
+                                aria-controls="comics" aria-selected="true">Comics ({{heroe.comics.length}})</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="profile-tab" data-bs-toggle="tab"
+                                [attr.data-bs-target]="'#series'+heroe.id" type="button" role="tab"
+                                aria-controls="series" aria-selected="false">Series ({{heroe.series.length}})</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="contact-tab" data-bs-toggle="tab"
+                                [attr.data-bs-target]="'#stories'+heroe.id" type="button" role="tab"
+                                aria-controls="stories" aria-selected="false">Stories
+                                ({{heroe.stories.length}})</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="comics{{heroe.id}}" role="tabpanel"
+                            aria-labelledby="comics">
+                            <div class="overflow-auto" style="height: 150px;"><br>
+                                <p *ngFor="let comic of heroe.comics">{{comic}}</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="series{{heroe.id}}" role="tabpanel" aria-labelledby="series">
+                            <div class="overflow-auto" style="height: 150px;"><br>
+                                <p *ngFor="let serie of heroe.series">{{serie}}</p>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="stories{{heroe.id}}" role="tabpanel" aria-labelledby="stories">
+                            <div class="overflow-auto" style="height: 150px;"><br>
+                                <p *ngFor="let story of heroe.stories">{{story}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+</div>

@@ -1,0 +1,79 @@
+<app-header></app-header>
+<div class="container">
+    <br>
+    <h2>Crea tu nuevo Heroe</h2><br>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Nombre</h5>
+                    <p class="card-text"><input type="text" class="form-control" [(ngModel)]="heroe.nombre"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Imagen</h5>
+                    <p class="card-text"><input type="text" class="form-control" [(ngModel)]="heroe.imagen"></p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Comics</h5><br>
+                    <p class="card-text" *ngFor="let c of heroe.comics" >{{c}}</p>
+                    <div class="row">
+                        <div class="col-10">
+                            <input type="text" class="form-control" [(ngModel)]="comic" />
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-success" (click)="addComic()"> Agregar </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Series</h5><br>
+                    <p class="card-text" *ngFor="let s of heroe.series" >{{s}}</p>
+                    <div class="row">
+                        <div class="col-10">
+                            <input type="text" class="form-control" [(ngModel)]="serie" />
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-success" (click)="addSerie()"> Agregar </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">Stories</h5><br>
+                    <p class="card-text" *ngFor="let st of heroe.stories" >{{st}}</p>
+                    <div class="row">
+                        <div class="col-10">
+                            <input type="text" class="form-control" [(ngModel)]="story" />
+                        </div>
+                        <div class="col-2">
+                            <button class="btn btn-success" (click)="addStory()"> Agregar </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col-2">
+            <button class="btn btn-primary" (click)="saveHeroe()">Guardar Heroe</button>
+        </div>
+        <div class="col-2">
+            <button class="btn btn-danger" routerLink="/heroes">Cancelar</button>
+        </div>
+    </div>
+</div>
