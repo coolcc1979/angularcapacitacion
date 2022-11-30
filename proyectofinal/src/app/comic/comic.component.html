@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+       <ng-container *ngFor="let comic of comicList">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="card">
+            <div class="card-img-top">
+              <img class="card-img-top" src="{{comic.thumbnail.path}}.{{comic.thumbnail.extension}}" alt="">
+            </div>
+       </div>        
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="container">
+            <div class="card">
+            <div class="card-header">
+                 <h5>{{comic.title}}</h5>
+            </div>
+             <div class="card-body">
+                    <p class="card-text">{{comic.description?comic.description:"no existe registros"}}</p>
+                    <p> diamondCode {{comic.diamondCode?comic.diamondCode:"no existe registros"}}</p>
+                    <p> isbn {{comic.isbn?comic.isbn:"no existe registros"}}</p>
+                    <p> pageCount {{comic.pageCount?comic.pageCount:"no existe registros"}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+       </ng-container> 
+    </div>
+
+</div>
+
+

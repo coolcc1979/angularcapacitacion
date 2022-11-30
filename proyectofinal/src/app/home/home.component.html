@@ -1,0 +1,68 @@
+<app-header></app-header>
+    <div class="container">
+        <div class="row">
+            <br>
+        <input class="form-control" (input)="filter($event)"/>
+            <ng-container *ngFor="let list of listinit">
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-12 d-flex align-items-stretch">
+                        <div class="container">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>{{list.name}}</h5>
+                                </div>
+                                <div class="card-body">
+                                    <img src="{{list.image}}" class="card-img-top" alt="">
+                                    <p class="card-text">{{list.description?list.description:"no existe registros"}}</p>
+                                    <h4>Peliculas</h4>
+                                <ng-container *ngFor="let peliculas of list.peliculas">
+                                    <ul>
+                                        <li>{{peliculas}}</li>
+                                    </ul>
+                            </ng-container>
+                            <h4>Comics</h4>
+                            <ng-container *ngFor="let comics of list.comics">
+                                <ul>
+                                    <li>{{comics}}</li>
+                                </ul>
+                        </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>             
+                <ng-container *ngFor="let resultado of result;let i =index">
+                    <div class="col-lg-4 col-sm-12 col-md-6 col-12 d-flex align-items-stretch">
+                    <div class="card mt-5">
+                        <div class="card-head">
+                            <h5>{{resultado.name}}</h5>
+                        </div>
+                    <i class="fa-solid fa-split">
+                     <img class="card-img-top" ngClass="image3" src="{{resultado.thumbnail.path}}.{{resultado.thumbnail.extension}}" alt="">
+                    </i>
+                    
+                       <div class="card-body">
+                         <p class="card-text">{{resultado.description}}</p>
+                       </div>
+                       <div class="d-grid">
+                        <a [routerLink]="['/informacion-heroes',resultado.id]" class="btn btn-primary btn-block">
+                            ver mas informacion
+                        </a>
+                    </div>
+                     <div class="d-grid">
+                        <button *ngIf="resultado.isSave" (click)="guardar(resultado.id,i)" class="btn btn-primary btn-block">
+                            guardar
+                        </button>
+                        <button *ngIf="!resultado.isSave" (click)="guardar(resultado.id,i)" disabled="true" class="btn btn-primary btn-block">
+                            guardado
+                        </button>
+                    </div> 
+                    </div>
+                 
+                   
+                </div>    
+                </ng-container>
+           
+          
+        </div>
+
+    </div>

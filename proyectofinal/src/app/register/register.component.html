@@ -1,0 +1,42 @@
+<section>
+    <h1>Register</h1>
+    <div class="container card p-5">
+    <form [formGroup]="registerForm" (ngSubmit)="GuardarUsuario()">
+        <div class="form-group">
+            <label for="firstName">Nombre</label>
+            <input type="text" class="form-control" id="firstName" formControlName="nombreUsuario" [class.is-invalid]="nombreNoValido" />
+            <small *ngIf="nombreNoValido" class="invalid-feedback">Nombre Requerido</small>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Apellido</label>
+            <input type="text" class="form-control" id="lastName" formControlName="apellidoUsuario"[class.is-invalid]="apellidoNoValido" />
+            <small *ngIf="apellidoNoValido" class="invalid-feedback">Apellido Requerido</small>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="email" formControlName="emailUsuario" [class.is-invalid]="emailinvalido" />
+            <small *ngIf="emailNoValido" class="invalid-feedback">Email Requerido</small>
+            <small *ngIf="emailNoValido2" class="invalid-feedback">No es email valido</small>
+            <small *ngIf="emailNoValido3" class="invalid-feedback">No es un email valido</small>
+        </div>
+        <div class="form-group">
+            <label for="password">Telefono</label>
+            <input type="text" class="form-control" id="password" formControlName="telefonoUsuario" [class.is-invalid]="telefonoinvalido" />
+            <small *ngIf="telefonoinvalido" class="invalid-feedback">Telefono Requerido o debe ingresar solo numeros</small>
+        </div>
+                  
+        <div class="form-group">
+            <label for="password">Contrasena</label>
+            <input type="password" class="form-control" id="password" formControlName="password1Usuario" [class.is-invalid]="password1invalid" />
+            <small *ngIf="password1NoValido" class="invalid-feedback"> Debe ingresar una contrasena </small>
+            <small *ngIf="password1NoValido2" class="invalid-feedback"> Debe tener minimo 8 caracteres</small>
+        <small *ngIf="password1NoValido3" class="invalid-feedback">La contrase;a es debil ingrese una contrase;a adecuada</small>
+        </div>
+        <div class="form-group">
+            <label for="password">Repetir Contrasena</label>
+            <input type="password" class="form-control" id="password" formControlName="password2Usuario" />
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!registerForm.valid">Registrar</button>
+    </form>
+</div>
+</section>

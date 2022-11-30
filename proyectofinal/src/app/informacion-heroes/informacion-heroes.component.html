@@ -1,0 +1,45 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+       <ng-container *ngFor="let hero of heroList">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="card">
+            <div class="card-img-top">
+              <img class="card-img-top" src="{{hero.thumbnail.path}}.{{hero.thumbnail.extension}}" alt="">
+            </div>
+       </div>        
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="container">
+            <div class="card">
+            <div class="card-header">
+                 <h5>{{hero.name}}</h5>
+            </div>
+             <div class="card-body">
+                    <p class="card-text">{{hero.description?hero.description:"no existe registros"}}</p>
+                    <h4>Comics</h4>
+                    <ng-container *ngFor="let comic of hero.comics.items">
+                   <ul class="list-group">
+                    <li (click)="goComic(comic.resourceURI)" class="list-group-item d-flex justify-content-between align-items-center my-1">
+                        {{comic.name}}
+                    </li>
+                   </ul>
+                    </ng-container>
+                    <h4>Series</h4>
+                    <ng-container *ngFor="let movies of hero.series.items">
+                        <ul class="list-group">
+                         <li (click)="goMovies(movies.resourceURI)" class="list-group-item d-flex justify-content-between align-items-center my-1">
+                        {{movies.name}}
+                         </li>
+                        
+                        </ul>
+                         </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+       </ng-container> 
+    </div>
+
+</div>
+

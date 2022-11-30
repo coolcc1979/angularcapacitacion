@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "auth1-e0b01": {
+      "hosting": {
+        "authenticationoat": [
+          "auth1-e0b01"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "auth1-e0b01"
+  }
+}

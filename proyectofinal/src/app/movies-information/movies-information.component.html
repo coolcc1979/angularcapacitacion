@@ -1,0 +1,31 @@
+<app-header></app-header>
+<div class="container m-6">
+    <div class="row">
+       <ng-container *ngFor="let serie of serieList">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="card">
+            <div class="card-img-top">
+              <img class="card-img-top" src="{{serie.thumbnail.path}}.{{serie.thumbnail.extension}}" alt="">
+            </div>
+       </div>        
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+        <div class="container">
+            <div class="card">
+            <div class="card-header">
+                 <h5>{{serie.title}}</h5>
+            </div>
+             <div class="card-body">
+                    <p class="card-text">{{serie.description?serie.description:"no existe registros"}}</p>
+                    <h6>Ano estreno: {{serie.startYear}}</h6>
+                    <h6>Ano de Finalizacion: {{serie.endYear}}</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+       </ng-container> 
+    </div>
+
+</div>
+
+

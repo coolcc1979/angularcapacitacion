@@ -1,0 +1,40 @@
+<app-header></app-header>
+<div class="container">
+    <div class="card p-5 mt-5">
+    <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" class="form-control" id="name" placeholder="Ingrese nombre" [(ngModel)]="heroe.name">
+    </div>
+    <div class="form-group">
+        <label for="description">Descripcion</label>
+        <input type="text" class="form-control" id="description" placeholder="Ingrese Apellido" [(ngModel)]="heroe.description">
+    </div>
+    <div class="form-group">
+        <label for="image">Imagen</label>
+        <input type="text" class="form-control" id="image" placeholder="Ingrese Imagen" [(ngModel)]="heroe.image">
+    </div>
+    <div>
+        <label for="peliculas">Peliculas</label>
+        <input type="text" class="form-control" id="image" placeholder="Ingrese Pelicula" [(ngModel)]="pelicula">
+        <button class="btn btn-dark" (click)="addPelicula()">Anadir</button>
+        <small>
+            <ul>
+                <li *ngFor="let peli of heroe.peliculas">{{peli}}</li>
+            </ul>
+        </small>
+    </div>
+    <div>
+        <label for="comic">Comic</label>
+        <input type="text" class="form-control" id="image" placeholder="Ingrese Comic" [(ngModel)]="comic">
+        <button class="anadir comic btn btn-dark" (click)="addComic()">Anadir comic</button>
+        <small>
+            <ul>
+                <li *ngFor="let comic of heroe.comics">{{comic}}</li>
+            </ul>
+        </small>
+    </div>
+<div>
+    <button class="btn btn-dark" (click)="addHero()">Anadir heroe</button>
+</div>
+</div>
+</div>

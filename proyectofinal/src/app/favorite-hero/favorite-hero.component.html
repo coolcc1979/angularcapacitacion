@@ -1,0 +1,18 @@
+<app-header></app-header>
+<div class="container">
+    <ul class="list-group list-group-numbered">
+        <ng-container *ngFor="let Hero of HeroList">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                    <div class="fw-bold">{{Hero.name}}</div>
+                    {{Hero.description}}
+                </div>
+                <button [routerLink]="['/informacion-heroes',Hero.id]" class="btn btn-dark">
+                      Ver mas Informacion
+                </button>
+            </li>
+
+        </ng-container>
+        
+    </ul>
+</div>
